@@ -4,7 +4,6 @@ import io
 import sys
 import base64
 import pandas as pd
-from io import StringIO, BytesIO
 from typing import Union
 from getpass import getpass
 from cryptography.fernet import Fernet
@@ -65,10 +64,9 @@ def decrypt(file: str, _stream: bool = True):
     with open(file, 'rb') as fh:
         encrypted = fh.read()
         data = fernet.decrypt(encrypted)
-    if _stream:
-        try:
-            return StringIO(data.decode('utf-8'))
-        except UnicodeDecodeError:
-            return BytesIO(data)
-    else:
-        return data
+    try:
+        data = data.decode('utf-8')
+        buffer = io.StringIO
+    except UnicodeDecodeError:
+        buffer = io.BytesIO
+    return buffer(data) if _stream else data
