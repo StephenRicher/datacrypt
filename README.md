@@ -2,6 +2,7 @@
 
 ## Table of contents
   * [Installation](#installation)
+    * [Docker](#docker)
   * [Command-line](#command-line)
   * [Python](#python)
   * [License](#license)
@@ -10,6 +11,14 @@
 ## Installation
 ```bash
 pip install git+https://github.com/StephenRicher/datacrypt.git
+```
+
+### Docker
+```bash
+git clone --depth 1 https://github.com/StephenRicher/datacrypt.git
+cd datacrypt/
+docker build -t datacrypt .
+docker run datacrypt --help
 ```
 
 ## Command-line
