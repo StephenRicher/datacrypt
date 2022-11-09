@@ -37,6 +37,7 @@ setup(
     },
     python_requires='>=3.8.0',
     install_requires=[
+        'pandas',
         'cryptography',
     ],
     license='MIT',
