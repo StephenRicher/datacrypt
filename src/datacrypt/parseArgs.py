@@ -11,7 +11,7 @@ from ._version import __version__
 
 
 def parseArgs() -> argparse.Namespace:
-    epilog = 'Stephen Richer, NHS England (stephen.richer@nhs.net)'
+    epilog = 'Stephen Richer, (stephen.richer@proton.me)'
     baseParser = getBaseParser(__version__)
     parser = argparse.ArgumentParser(
         epilog=epilog, description=__doc__, parents=[baseParser])
