@@ -4,7 +4,11 @@
   * [Installation](#installation)
     * [Docker](#docker)
   * [Command-line](#command-line)
+    * [Encrypt](#encrypt)
+    * [Decrypt](#decrypt)
   * [Python](#python)
+    * [Pandas](#pandas)
+    * [Files](#files)
   * [License](#license)
   * [Contact](#contact)
 
@@ -23,12 +27,12 @@ docker run datacrypt --help
 
 ## Command-line
 
-#### Encrypt and write to stdout
+#### Encrypt
 ```bash
 datacrypt encrypt data.csv > data.encrypted
 ```
 
-#### Decrypt and write to stdout
+#### Decrypt
 ```bash
 datacrypt decrypt data.encrypted > data.decrypted.csv
 ```
