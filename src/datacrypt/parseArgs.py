@@ -28,7 +28,7 @@ def parseArgs() -> argparse.Namespace:
         help='Encrypt a file with password.',
         parents=[baseParser],
         epilog=parser.epilog)
-    sp1.add_argument('file', help='File to encrypt.')
+    sp1.add_argument('file', nargs='?', help='File to encrypt.')
     sp1.set_defaults(function=_encrypt_cli)
 
     sp2 = subparser.add_parser(

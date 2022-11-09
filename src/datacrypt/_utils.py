@@ -3,6 +3,7 @@
 import io
 import sys
 import base64
+import fileinput
 import pandas as pd
 from typing import Union
 from getpass import getpass
@@ -20,7 +21,7 @@ def _getKey():
     return Fernet(key)
 
 
-def _encrypt_cli(file: str):
+def _encrypt_cli(file: str = None):
     """ Encrypt file and write to stdout """
     sys.stdout.buffer.write(encrypt(file))
 
@@ -42,15 +43,20 @@ def _encrypt_pandas(df: pd.DataFrame, path: str):
         f.write(data)
 
 
-def _encrypt_file(file: str):
+def _encrypt_file(file: str = None):
     """ Encrypt files """
     fernet = _getKey()
-    with open(file, 'rb') as fh:
-        data = fh.read()
+    if file is None:
+        fileobj = sys.stdin
+    else:
+        fileobj = open(file, 'rb')
+    with fileobj:
+        data = fileobj.read()
+    data = data.encode('utf-8') if file is None else data
     return fernet.encrypt(data)
 
 
-def encrypt(file: Union[str, pd.DataFrame], path: str = None):
+def encrypt(file: Union[str, pd.DataFrame] = None, path: str = None):
     """ Encrypt pandas of file according to input """
     if isinstance(file, pd.DataFrame):
         assert file is not None
