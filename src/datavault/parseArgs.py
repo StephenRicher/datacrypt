@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" Command Line Interface for Fernet Encryption """
+""" Command Line Interface for DataSafe """
 
 import sys
 import logging

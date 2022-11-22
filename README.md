@@ -1,4 +1,4 @@
-# DataVault - Utilities for data encryption / decryption
+# DataSafe - Utilities for data encryption / decryption
 
 ## Table of contents
   * [Installation](#installation)
@@ -14,39 +14,39 @@
 
 ## Installation
 ```bash
-pip install datavault
+pip install datasafe
 ```
 
 ### Docker
 ```bash
-git clone --depth 1 https://github.com/StephenRicher/datavault.git
-cd datavault/
-docker build -t datavault .
-docker run datavault --help
+git clone --depth 1 https://github.com/StephenRicher/datasafe.git
+cd datasafe/
+docker build -t datasafe .
+docker run datasafe --help
 ```
 
 ## Command-line
 
 #### Encrypt
 ```bash
-datavault encrypt data.csv > data.encrypted
+datasafe encrypt data.csv > data.encrypted
 ```
 
 #### Decrypt
 ```bash
-datavault decrypt data.encrypted > data.decrypted.csv
+datasafe decrypt data.encrypted > data.decrypted.csv
 ```
 
 ## Python
-`datavault` can be imported as a python module to encrypt and decrypt files.
+`datasafe` can be imported as a python module to encrypt and decrypt files.
 
 ### Pandas
-If a Pandas DataFrame is provided to `datavault.encrypt` then it will be encrypted in `.parquet` format.
+If a Pandas DataFrame is provided to `datasafe.encrypt` then it will be encrypted in `.parquet` format.
 Following decryption, an in-memory buffer is returned which should be passed to `pd.read_parquet` to recover the dataframe and datatypes.
 
 ```python
 import pandas as pd
-from datavault import encrypt, decrypt
+from datasafe import encrypt, decrypt
 
 df = pd.DataFrame({
     'A': [1, 2, 3],
@@ -60,12 +60,12 @@ df = pd.read_parquet(decrypt('df-encrypted.pq'))
 
 ### Files
 The command line functionality can also be achieved within Python.
-In addition the `datavault.decrypt` function returns an in-memory buffer which can be read directly.
+In addition the `datasafe.decrypt` function returns an in-memory buffer which can be read directly.
 
 #### Encrypt and write encrypted data to file
 ```python
 import pandas as pd
-from datavault import encrypt, decrypt
+from datasafe import encrypt, decrypt
 
 with open('data.encrypted', 'wb') as fh:
     fh.write(encrypt('data.csv'))

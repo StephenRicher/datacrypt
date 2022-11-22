@@ -1,3 +1,3 @@
 #!/usr/bin/env python3
 
-from datavault._utils import encrypt, decrypt
+from datasafe._utils import encrypt, decrypt

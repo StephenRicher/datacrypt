@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" Setup file for datavault. """
+""" Setup file for datasafe. """
 
 
 import os
@@ -25,12 +25,12 @@ def get_info():
 
 
 setup(
-    name='datavault',
+    name='datasafe',
     author='Stephen Richer',
     author_email='stephen.richer@nhs.net',
-    url='https://github.com/StephenRicher/datavault',
+    url='https://github.com/StephenRicher/datasafe',
     entry_points={
-        'console_scripts': ['datavault=datavault.parseArgs:parseArgs']
+        'console_scripts': ['datasafe=datasafe.parseArgs:parseArgs']
     },
     python_requires='>=3.8.0',
     install_requires=[
