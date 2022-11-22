@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" Setup file for fernet_cli. """
-
-# Note: To use the 'upload' functionality of this file, you must:
-#   $ pipenv install twine --dev
+""" Setup file for datavault. """
 
 
 import os
@@ -28,12 +25,12 @@ def get_info():
 
 
 setup(
-    name='fernet_cli',
+    name='datavault',
     author='Stephen Richer',
     author_email='stephen.richer@nhs.net',
-    url='https://github.com/nhsx/morbidity_network_analysis',
+    url='https://github.com/StephenRicher/datavault',
     entry_points={
-        'console_scripts': ['datacrypt=datacrypt.parseArgs:parseArgs']
+        'console_scripts': ['datavault=datavault.parseArgs:parseArgs']
     },
     python_requires='>=3.8.0',
     install_requires=[
@@ -57,7 +54,4 @@ setup(
     packages=find_namespace_packages(where='src'),
     package_dir={'': 'src'},
     zip_safe=False,
-    #cmdclass={
-    #    'upload': UploadCommand,
-    #}
 )
